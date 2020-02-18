@@ -17,7 +17,6 @@
 \setlength{\myindent}{\parindent}
 \newcommand{\ind}{\hspace*{\myindent}}
 
-
 %\geometry{landscape}                % Activate for for rotated page geometry
 \usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 %\usepackage{amssymb, amsmath}
@@ -67,7 +66,7 @@
 \usepackage{hyperref}
 %\usepackage{hanging}
 
-\usepackage[sc]{titlesec}
+\usepackage[sc, compact]{titlesec}
 
 
 \renewcommand{\solutiontitle}{\noindent}
@@ -97,14 +96,22 @@
 \newcommand*\AnswerBox[2]{%
     \parbox[t][#1]{0.92\textwidth}{%
     \begin{solution}#2\end{solution}}
-    \vspace{\stretch{1}}
+    \vspace*{\stretch{0.1}}
 }
 
-\newenvironment{AnswerPage}[1]
-    {\begin{minipage}[t][#1]{0.92\textwidth}%
-    \begin{solution}}
-    {\end{solution}\end{minipage}
-    \vspace{\stretch{1}}}
+\newcommand*\AnswerBoxNS[2]{%
+	\parbox[t][#1]{0.92\textwidth}{%
+		\begin{solution}#2\end{solution}}
+%	\vspace*{\stretch{0.1}}
+}
+
+%\newenvironment{AnswerPage}[1]
+%    {\begin{minipage}[t][#1]{0.92\textwidth}%
+%    \begin{solution}}
+%    {\end{solution}\end{minipage}
+%    \vspace*{\stretch{1}}
+%}
+
 
 \newlength{\basespace}
 \setlength{\basespace}{5\baselineskip}
@@ -119,7 +126,7 @@
 
 These exercises are based on the peppered moth (\textit{Bison betularia}) that lives in Great Britain. The peppered moth has two phenotypes, a light-colored form with dark speckles (hence, the common name) and a dark form that is nearly black. The color of the peppered moth is determined by one gene with two alleles. The \allele{D} allele causes dark pigment production but the \allele{d} allele does not. If at least one dark allele is present then pigment will be produced, so moths that are homozygous \allele{DD} or heterozygous \allele{Dd} genotypes are dark. Only moths that are homozygous \allele{dd} are light. 
 
-You will work in pairs for this exercise. One pair at your table will complete the Natural Selection section, starting on page~\pageref{sec:natural_selection}. The other pair will complete the Gene Flow section, starting on page~\pageref{sec:gene_flow}. \textbf{Both pairs must complete the $\chi^2$ section that starts on page~\pageref{sec:chi_square}.}
+You will work in pairs for this exercise. One pair at your table will complete the \textsc{Evolution by natural selection} section, starting on page~\pageref{sec:natural_selection}. The other pair will complete the \textsc{Evolution by gene flow} section, starting on page~\pageref{sec:gene_flow}. \textbf{Both pairs must complete the \textsc{Deviation from equilibrium} and $\chi^2$ sections that start on page~\pageref{sec:chi_square}.}
 
 %Evolution is be defined as genetic change in a population over time. The genetic change that happens in a population over time is the change in allele frequencies. Alleles are versions of genes that determine the traits of individuals, such as eye color and hair color. Frequency tells how common or uncommon different alleles are in a population. Common alleles have a high frequency while uncommon alleles have a low frequency.  
 %
@@ -501,8 +508,8 @@ What mode of selection best matches your results? Explain.
 
 \AnswerBox{0.5\basespace}{Directional selection. The population phenotype is changing in one direction, from light phenotype to dark phenotype.}
 
-\textbf{Proceed to Question~\ref{ques:chi-square}.}
-
+%\textbf{Proceed to Question~\ref{ques:chi-square}.}
+\textbf{Proceed to the \textsc{Deviation from equilibrium} section on page~\pageref{sec:chi_square}.}
 
 
 
@@ -581,32 +588,139 @@ all groups.
 \question
 Describe how the heterozygote genotype frequency changed over time for \emph{each} population.
 
-\AnswerBox{0.5\basespace}{The \allele{dd} frequency should slowly decrease. The \allele{Dd} frequency increases first, followed by \allele{DD} frequency.}
+\AnswerBox{0.05\textheight}{The \allele{dd} frequency should slowly decrease. The \allele{Dd} frequency increases first, followed by \allele{DD} frequency.}
 
 \question
 Did the results agree with the prediction you made in question~\ref{ques:migration_prediction}? Explain.
 
-\AnswerBox{0.1\basespace}{%
+\AnswerBox{0.05\textheight}{%
 }
 
 \question[Checkout]
 Based on the results of your migration simulation, explain why gene flow between two populations should prevent them from becoming genetically different (that is, have different alleles).
 
-\AnswerBox{4\baselineskip}{Gene flow should prevent them from becoming genetically different become movement carries alleles between two populations.}
+\AnswerBoxNS{0.1\textheight}{Gene flow should prevent them from becoming genetically different become movement carries alleles between two populations.}
+
 
 %\newpage
 
-\subsubsection*{Does your population deviate from equilibrium? Calculate $\chi^2$}\label{sec:chi_square}
+%\subsubsection*{Does your population deviate from equilibrium? Calculate $\chi^2$}\label{sec:chi_square}
 
-\question[Checkout] \label{ques:chi-square}
-Calculate $\chi^2$ for the final generation of your population. Use \emph{only} Population~1 if you did the gene flow section. As a reminder, here is the equation to calculate the statistic.
+%\question[Checkout] \label{ques:chi-square}
+%Calculate $\chi^2$ for the final generation of your population. Use \emph{only} Population~1 if you did the gene flow section. As a reminder, here is the equation to calculate the statistic.
+%
+%\[\chi^2 = \sum_{i=1}^{i=j}\frac{(O_i - E_i)^2}{E_i}, \]
+%
+%In the space below, make a table that shows all steps of your calculation. If necessary, refer to the \textsc{Evolution by genetic drift} exercise from the previous lab. \textbf{Is your final generation in Hardy-Weinberg equilibrium? Tell how you know.}
+%
+%\AnswerBox{4\basespace}{%
+%}
+
+\subsubsection*{Deviation from equilibrium}
+
+\label{sec:chi_square}The allele and genotype frequencies probably changed from generation to 
+generation. The changes might be large or small but natural selection or gene flow (depending on which exercise you completed) and genetic drift caused allele 
+and genotype frequencies to change every generation.
+
+The next step is to test whether Generation~5 is in Hardy-Weinberg equilibrium. 
+You calculated the observed allele and genotype frequencies, and you counted the 
+number of individuals of each genotype. These are \emph{observed} values because 
+you counted them directly from your sampled data.  If Generation~5 is in 
+Hardy-Weinberg equilibrium, then you can use your allele frequencies to predict 
+the number of individuals of each genotype you would expect to sample. \bigskip
+
+\textsc{Example}
+
+\medskip
+
+Assume you have the following data for Generation~5 for a sample of 20 individuals.
+
+$DD$: 7 individuals  \\
+$Dd$: 10 individuals, and\\
+$dd$: 3 individuals.
+
+The allele frequencies are $D = 0.6$ and $d = 0.4$. (By now, you should 
+know how to calculate these values on your own but ask if you are uncertain.) If you let $p$ equal the $D$ 
+frequency, then $p^2 = 0.36$, $q^2 = 0.16$, and $2pq = 0.48$.
+
+Next, calculate the number of \emph{expected} number of individuals of each 
+genotype by multiplying your sample size by each genotype frequency.
+
+$DD$: $20 \times 0.36 = 7.2$ individuals,\\
+$Dd$: $20 \times 0.48 = 9.6$ individuals, and\\
+$dd$: $20 \times 0.16 = 3.2$ individuals.
+
+\textbf{Do not round the expected numbers.} It is \textsc{ok} to have 
+fractions of individuals for expected numbers. The small table below 
+shows the comparison between your observed and expected number of individuals.
+
+\begin{longtable}{lrr}
+	\toprule
+	Genotype	& Observed	& Expected \tabularnewline
+	\midrule
+	$DD$ & 7  & 7.2 \tabularnewline
+	$Dd$ & 10 & 9.6 \tabularnewline
+	$dd$ & 3  & 3.2 \tabularnewline
+	\bottomrule
+\end{longtable}	
+
+The observed and expected numbers are not equal, so the population appears not 
+to be in Hardy-Weinberg equilibrium. However, random sampling of a small number 
+of individuals from a large population introduces \emph{sampling error.} Sampling 
+error does not mean that you made a mistake; instead, sampling error refers to 
+the difference between the true value of a population (e.g., the true number of 
+each genotype) and the value estimated from your random sample (the estimated 
+number of each genotype). \emph{Genetic drift is a type of sampling error.}
+
+\subsubsection*{The $\chi^2$ test}
+
+Could the difference between oberved and expected values be due to sampling 
+error or could it be due to a real evolutionary process, such as genetic drift 
+or natural selection? You can answer these questions with a statistical test 
+called the $\chi^2$ test (chi-square; chi sounds like kye). The $\chi^2$ test 
+compares observed values (your sample) against expected values to determine 
+whether the differences are more likely due to random sampling error or to 
+non-random factors, such as a violation of at least one assumption of the 
+Hardy-Weinberg equations.
+
+The equation to calculate $\chi^2$ is 
 
 \[\chi^2 = \sum_{i=1}^{i=j}\frac{(O_i - E_i)^2}{E_i}, \]
 
-In the space below, make a table that shows all steps of your calculation. If necessary, refer to the \textsc{Evolution by genetic drift} exercise from the previous lab. \textbf{Is your final generation in Hardy-Weinberg equilibrium? Tell how you know.}
+where $O$ is the observed value, $E$ is the expected value, $i$ is the current 
+genotype (i.e., $D_1D_1$, $ D_1D_2$, or $D_2D_2$), and $j$ is the total number 
+of genotypes. 
 
-\AnswerBox{4\basespace}{%
-}
+The calculation is easier than it looks! For each genotype, subtract the 
+expected value from the observe value, square that value, then divide it 
+by the expected value. Once you have the final value for each of the three 
+genotypes, add them together to obtain $\chi^2$. The steps are laid out 
+in the table below. 
+
+\newpage
+
+\question[Checkout]
+Fill in each blank to calculate $\chi^2$ for Generation~5.
+
+\begin{longtable}{cccccc}
+	\toprule
+	Genotype & Observed & Expected & $O-E$ & $(O-E)^2$ & $\frac{(O-E)^2}{E}$ \tabularnewline
+	\midrule
+	&&&&&\tabularnewline
+	$DD$ & \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt}\tabularnewline[2em]
+	%
+	$Dd$ & \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt}\tabularnewline[2em]
+	%
+	$dd$ & \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt}\tabularnewline[2em]
+	&&&& $\chi^2 = $& \rule{0.5in}{0.4pt}\tabularnewline
+	\bottomrule
+\end{longtable}
+
+Compare your calculated $\chi^2$ to the threshold value of $\chi^2 = 3.841$.\footnote{The reasons why you use this value is beyond the scope of this exercise.} If your calculated $\chi^2 > 3.841$, then the observed deviations from expected values is \emph{statistically significant}. A significant result means that the observed deviations are probably due to a process like genetic drift. If your calculated $\chi^2 \le 3.841$, then your results are not significant. Your deviations from expected values are probably due to random sampling error. If your results are not significant, that means your population is in Hardy-Weinberg equilibrium.
+
+\question[Checkout]
+Tell whether your results show a significant deviation from Hardy-Weinberg equilibrium and how you know. 
+
 \newpage
 
 \begin{landscape}
