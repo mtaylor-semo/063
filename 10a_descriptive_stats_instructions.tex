@@ -1,0 +1,315 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+
+
+%\printanswers
+
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{amsbsy}
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+\usepackage{afterpage}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+\newcommand*\meanY{\overline{Y\kern1.67pt}\kern-1.67pt}
+\newcommand*\meansubY{\overline{Y}}
+%\newcommand*\meanY{\overline{Y}}
+\newcommand*\ttest{\emph{t}-test}
+\newcommand*\Popa{Population~\textsc{a}}
+\newcommand*\Popb{Population~\textsc{b}}
+\newcommand*\popa{population~\textsc{a}} %lower case
+\newcommand*\popb{population~\textsc{b}} %lower case
+\newcommand*\Corbicula{\textit{Corbicula}}
+\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+\begin{document}
+
+
+\subsubsection*{Instructions}
+
+\textbf{Read all instructions in this document carefully so that you do the required work without doing extra work!}
+
+Download from your lab Moodle page the two lab handouts that you would have received in lab this week. 
+
+\begin{itemize}
+\item 10a: Descriptive statistics
+\item 10b: t-test in Excel
+\end{itemize}
+
+Complete the exercises in each handout as described below. Type your answers into a Word document (\textsc{pdf} is acceptable). Submit answers \emph{only} to the questions indicated. You do not have to answer other questions but \emph{you are still responsible for understanding the all material in the handout}.
+
+\textbf{Upload your answers to the drop box provided on your lab Moodle page by the start of next week's lab.}
+
+
+\subsubsection*{Lab handout 10a: descriptive statistics}
+
+Your goal is to know how to calculate mean, standard deviation, standard error of the mean, and perform and interpret a t-test.
+
+
+\emph{Mean}
+
+\begin{enumerate}
+\item Answer questions 1–4 from the Descriptive Statistics handout.
+
+\item Answer question~5. Calculate the mean for the Stream and River populations \textbf{from the First Sample set provided on the last page of these instructions.} 
+
+\item Answer question~6. Calculate the mean for the Stream and River populations \textbf{from the Second Sample set provided on the last page of these instructions.}
+
+The first sample represents the results you and your lab partner would have obtained in lab. The second sample represents the results from other pair of students (see details in question~6).
+
+
+\item Compare the means for the two Stream samples. Are they \emph{exactly} the same? Are the means for the two River samples \emph{exactly} the same?
+
+\textbf{Bonus question 6a:} Both Stream samples were measured from the same stream population. Both River samples were measured from the same River population. Why do you think the means from the two Stream samples or the two River samples are different from each other?  
+
+\item Answer question 7.
+
+\end{enumerate}
+
+\bigskip
+
+\emph{Standard deviation}
+
+Carefully study the section on Standard Deviation. Work through the example in Table~3 to be sure you know and understand the steps.
+
+\begin{enumerate}[resume]
+\item Answer questions~8 and~9. Calculate the standard deviation for each population from the First Sample. Your answer must provide the standard deviation for each population. \emph{Do not calculate the standard deviation for the Second Sample except for practice.}
+
+
+\item Answer question~10. A larger standard deviation indicates greater variability.
+
+
+\end{enumerate}
+
+\bigskip
+
+\emph{Standard error of the mean}
+
+Carefully study the section on Standard Error of the Mean. 
+
+\begin{enumerate}[resume]
+\item Answer question 11. Calculate the standard error of the mean for each population from the First Sample. Your answer must provide the standard error for each population. \emph{Do not calculate the standard error of the mean for the Second Sample except for practice.}
+
+\end{enumerate}
+
+\bigskip
+
+t\emph{-test}
+
+Carefully study the section on the \emph{t}-test. Work through the example on pages~12–13.
+
+
+\begin{enumerate}[resume]
+\item Answer questions 12–16 for the First Sample. \emph{Do not calculate the \emph{t}-test for the Second Sample except for practice.}
+\end{enumerate}
+
+
+\subsubsection*{Lab handout 10b: \emph{t}-test in excel}
+
+Your goal is to learn how to perform a \emph{t}-test in Excel. 
+
+\begin{enumerate}
+\item Open Microsoft Excel. You can use a version on your computer or the free online version available to you at \url{http://office.semo.edu} (login with with \textsc{se} key and password).
+
+\item Enter the measurements for the Stream and River populations from First Sample into Excel.  \emph{Do not enter the numbers from the Individual column. Do not calculate the \emph{t}-test for the Second Sample except for practice.}
+
+\item Do all steps described in the lab handout.
+
+\item Save a copy of the spreadsheet with your completed results and upload it to the drop box. \emph{If you use the online version, choose ``File $\rightarrow$ Save As $\rightarrow$ Download a Copy” to save a copy to your computer. Upload that file to the drop box.}  Do not save the copy online because you will not be able to upload it to the drop box for a grade.
+
+\end{enumerate}
+
+
+
+
+\subsection*{Data}
+
+\begin{multicols}{2}
+
+\textbf{First Sample}
+
+\begin{tabular}{@{}lrr@{}}
+\toprule
+& \multicolumn{2}{c}{Population} \\
+\cmidrule(l){2-3}
+Individual & Stream & River \\
+\midrule
+1	& 20.6	& 22.3 \\
+2	& 19.6	& 22.4 \\
+3	& 19.6	& 22.4 \\
+4	& 20.3	& 21.0 \\
+5	& 21.0	& 21.5 \\
+6	& 20.0	& 22.1 \\
+7	& 19.4	& 20.8 \\
+8	& 20.3	& 22.1 \\
+9	& 18.3	& 23.5 \\
+10	& 20.8	& 22.4 \\
+11	& 19.3	& 20.7 \\
+12	& 18.3	& 21.5 \\
+13	& 19.4	& 23.2 \\
+14	& 20.6	& 22.0 \\
+15	& 19.6	& 21.6 \\
+\bottomrule
+\end{tabular}
+
+\columnbreak
+
+\textbf{Second Sample}
+
+\begin{tabular}{@{}lrr@{}}
+\toprule
+& \multicolumn{2}{c}{Population} \\
+\cmidrule(l){2-3}
+Individual & Stream & River \\
+\midrule
+1	& 19.8	& 23.1 \\
+2	& 20.4	& 21.6 \\
+3	& 19.3	& 21.0 \\
+4	& 21.8	& 22.2 \\
+5	& 19.8	& 23.1 \\
+6	& 21.8	& 21.3 \\
+7	& 19.1	& 23.0 \\
+8	& 20.7	& 19.8 \\
+9	& 20.4	& 21.1 \\
+10	& 19.1	& 21.6 \\
+11	& 22.7	& 22.0 \\
+12	& 20.2	& 21.2 \\
+13	& 20.0	& 21.7 \\
+14	& 18.8	& 23.0 \\
+15	& 18.0	& 22.7 \\
+\bottomrule
+\end{tabular}
+
+\end{multicols}
+
+\ifprintanswers
+
+\textbf{Answers}
+
+\begin{tabular}{ll}
+\toprule
+$\overline{Y},$ first sample stream & 19.81 \\
+$\overline{Y},$ first sample river & 21.97 \\
+\midrule
+$\overline{Y},$ second sample stream  & 20.13 \\
+$\overline{Y},$ second sample river & 21.89 \\
+\midrule
+$s,$ first sample stream & 0.82 \\
+$s,$ first sample river	& 0.80 \\
+\midrule
+\textsc{se,} first sample stream & 0.21 \\
+\textsc{se,} first sample river & 0.21 \\
+\midrule
+\emph{t,} first sample	& 7.28 \\
+\bottomrule
+\end{tabular}
+
+\fi
+
+\end{document}  
