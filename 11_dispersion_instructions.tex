@@ -1,0 +1,233 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+
+
+%\printanswers
+
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/063/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle, Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{amsbsy}
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+\usepackage{afterpage}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+\newcommand*\meanY{\overline{Y\kern1.67pt}\kern-1.67pt}
+\newcommand*\meansubY{\overline{Y}}
+%\newcommand*\meanY{\overline{Y}}
+\newcommand*\ttest{\emph{t}-test}
+\newcommand*\Popa{Population~\textsc{a}}
+\newcommand*\Popb{Population~\textsc{b}}
+\newcommand*\popa{population~\textsc{a}} %lower case
+\newcommand*\popb{population~\textsc{b}} %lower case
+\newcommand*\Corbicula{\textit{Corbicula}}
+\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+\begin{document}
+
+
+\subsubsection*{Instructions}
+
+\textbf{Read all instructions in this document carefully so that you do the required work without doing extra work!}
+
+Download from your lab Moodle page the lab handout that you would have received in lab this week. Also download the Excel data file. If you cannot open the Excel file in your spreadsheet software, email Dr.~Taylor (mtaylor@semo.edu) for an alternate solution.
+
+\begin{itemize}
+\item 11: Dispersion game
+\item 11\_dispersion\_data.xlsx
+\end{itemize}
+
+Complete the exercises in the handout as described below. Type your answers into a Word document (\textsc{pdf} is acceptable). Submit answers \emph{only} to the questions indicated. You do not have to answer other questions but \emph{you are still responsible for understanding all the material in the handout}.
+
+\textbf{Upload your answers and spreadsheet to the drop box provided on your lab Moodle page by the start of next week's lab.}
+
+
+\subsubsection*{Lab handout 11: dispersion game}
+
+Your goal is to know how to calculate a version of $\chi^2$ that you can use to determine dispersion patterns of individuals in a population.
+
+
+\emph{Data}
+
+\begin{enumerate}
+\item You will only do calculations for the blue species. Ignore all references to the green species.
+
+\item Open the Excel in the spreadsheet program of your choice. 
+
+\item Skip step~\textsc{b} on page~3. The data you need are already entered and the spreadsheet is already formatted. 
+
+\end{enumerate}
+
+\bigskip
+
+\emph{Non-random data}
+
+\begin{enumerate}[resume]
+
+\item Read the first paragraph and step~\textsc{a.} The data in column~A of the spreadsheet represent the data you would have collected in lab for step~\textsc{a.}
+
+\item Do step~\textsc{b} for the data \emph{in column~\textsc{a.}} Do not do this yet for the data in column~\textsc{d.}
+
+\item Do steps \textsc{d–h} for the blue species data in column~\textsc{a.} 
+
+\item Enter into your Word document the $\chi^2$ value you calculated for step~\textsc{f} and the estimated dispersion pattern for step~\textsc{h.}
+
+\end{enumerate}
+
+\newpage
+
+\emph{Random data}
+
+\begin{enumerate}[resume]
+
+\item Read the first paragraph of this section. 
+
+\item Do all steps~\textsc{b-g}. Do not do step~\textsc{a.} Step~\textsc{b} refers to green but you are actually using blue.
+
+\item Enter into your Word document the $\chi^2$ value you calculated for step~\textsc{e} and the estimated dispersion pattern for step~\textsc{g.}
+
+\item \textsc{Note:} The $\chi^2$ value you calculate for the random data will be larger than the values on the \textsc{y}-axis. That's \textsc{ok.} You'll be able to figure out the dispersion pattern.
+
+\end{enumerate}
+
+\bigskip
+
+\emph{Checkout}
+
+\begin{enumerate}[resume]
+
+\item Enter your answers to conclusion questions 2–4 in your Word document.
+
+\item Upload your Word (or \textsc{pdf}) document to the drop box for Week 11. 
+
+\item Upload your completed spreadsheet to the drop box, too. Your spreadsheet should show the means, sum of squares (\textsc{ss}), and the $\chi^2$ values for the non-random and random samples.
+
+\end{enumerate}
+
+
+\ifprintanswers
+
+\textbf{Answers}
+
+\begin{tabular}{ll}
+\toprule
+Non-random sample $\overline{Y}$ & 0.325 \\
+Non-random sample \textsc{ss} & 12.775 \\
+Non-random sample $\chi^2$ & 39.3 \\
+Non-random sample pattern & Random \\
+\midrule
+Random sample $\overline{Y}$ & 0.311 \\
+Random sample \textsc{ss} & 73.3 \\
+Random sample $\chi^2$ & 235.6 \\
+Random sample pattern & Clumped \\
+\bottomrule
+\end{tabular}
+
+\fi
+
+\end{document}  
