@@ -1,0 +1,170 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+
+
+%\printanswers
+
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/063/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle, Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{amsbsy}
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+\usepackage{afterpage}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+\newcommand*\meanY{\overline{Y\kern1.67pt}\kern-1.67pt}
+\newcommand*\meansubY{\overline{Y}}
+%\newcommand*\meanY{\overline{Y}}
+\newcommand*\ttest{\emph{t}-test}
+\newcommand*\Popa{Population~\textsc{a}}
+\newcommand*\Popb{Population~\textsc{b}}
+\newcommand*\popa{population~\textsc{a}} %lower case
+\newcommand*\popb{population~\textsc{b}} %lower case
+\newcommand*\Corbicula{\textit{Corbicula}}
+\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+\begin{document}
+
+
+
+\subsection*{Instructions for taxonomy, classification, and bacterial resistance}
+
+
+\textbf{Read all instructions in this document carefully so that you do the required work without doing extra work!}
+
+Download from your lab Canvas page the following files from the Week 4 module.
+\begin{itemize}
+\item 04: Taxonomy and Classification.pdf
+\item 04\_answer\_template.docx
+\item bacterial\_results.xlsx
+%\item 02b: bacterial resistance
+\end{itemize}
+
+\subsubsection*{Part 1: Taxonomy and classification}
+
+Answer all questions in taxonomy and classification handout. Type your answers into the answer\_template Word document. The template has the blank tables from the handout for easy completion.
+
+\textbf{Important note:} The website for the Integrated Taxonomic Information System (\textsc{itis}) appears to be down. You may use the Global Biodiversity Information Facility (\url{http://gbif.org}) as an alternate. Enter “Red Maple” into the search box. Scroll down the results to find \textit{Acer rubrum} L. and click it for the answers you need.
+
+Upload your answers to the Taxonomy and Classification drop box.
+
+\subsubsection*{Part 2: Bacterial resistance}
+
+Read the lab handout on bacterial resistance that you downloaded last week. The spreadsheet contains typical results from a previous experiment. The results are reported in centimeters. \emph{You must convert and report the results in millimeters (mm).}
+
+\begin{enumerate}
+\item Make a column graph of the results. Number the figure and write an appropriate caption for your figure. Review the handout from the graphing lab to write a good caption.
+\item Study the original bacterial resistance handout carefully. The handout details the requirements of your final paper. You can also read the grading rubric in the assignment drop box to ensure you meet the requirements. 
+\item You do \emph{not} have to write the Material and Methods section.
+\item Upload your final written report to the Bacterial Resistance Final Report drop box by the due date shown online.
+\end{enumerate}
+
+\emph{Follow the requirements in the bacterial resistance handout and the grading rubric to maximize your points earned for the assignment.}
+
+
+\end{document}  

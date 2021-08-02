@@ -1,0 +1,200 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+
+
+%\printanswers
+
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/063/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}   
+
+\usepackage{afterpage}
+\usepackage{pdflscape}
+                
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle, Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{amsbsy}
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\newcolumntype{M}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+%\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+\newcommand{\allele}[1]{$#1$}
+
+
+\begin{document}
+
+
+
+\subsection*{Instructions for invertebrate homologies and dna phylogenies}
+
+
+\textbf{Read all instructions in this document carefully so that you do the required work without doing extra work!}
+
+Download from your lab Canvas page these \textsc{pdf} files from the Week 9 module.
+
+\begin{itemize}
+\item 09a: Invertebrate homologies
+\item 09b: DNA phylogenies
+\item 18s phylogeny
+\item \textsc{coi} phylogeny
+\end{itemize}
+
+\subsubsection*{09a: Invertebrate homologies}
+
+\begin{enumerate}
+
+\item Skip question 1. You should try it for fun but it's even \emph{harder} to get correct than the vertebrate embryos. The answers are at the end of this document.
+
+\item Answer questions 2-8. Do your best. I'll be lenient. If you are unsure about the function of a structure, email your lab instructor, but read the handout carefully for insight. 
+
+\item Skip questions 9–13. Leaves are a homology because leaves are not necessary for photosynthesis. Cactus spines, for example, are modified leaves that are not used for photosynthesis. Instead, photosynthesis occurs in the main “body” of the cactus. Many bacteria and single-celled organisms also have photosynthesis but do not have leaves.
+
+\item Answer questions 14–18. Once again, do your best but don't worry if you are unsure. You can also use your web-surfing skills to look up information. 
+
+\item Skip question 19. D\textsc{na} is common to all living organisms.
+
+\item Draw the phylogenetic tree for question 20.
+
+\end{enumerate}
+
+
+\subsubsection*{09b: Dna phylogenies}
+
+\begin{enumerate}
+
+\item Read and \emph{carefully} follow the instructions for steps \textsc{a–j}. Download and save \textsc{png} files of each phylogenetic tree. You'll upload them to the drop box for this lab.
+
+\item Question 1: Use the 18\textsc{s} and \textsc{coi} phylogenies that you downloaded from Canvas for this question. Your analysis from steps~\textsc{a–j} above \emph{might} have produced a tree slightly different than other students. (The reason is too complex for this exercise.) I provided phylogenies for consistency across all sections.
+
+Your goal is to try to make one big tree from the two smaller trees. Play close attention. ”Vertebrates” on the 18\textsc{s}tree include the monophyletic clade from fish to birds in the \textsc{coi} tree. 
+
+Notice also the location of arthropods and mollusks in both trees. 
+
+Notice that echinoderms are more closely related to the vertebrates.
+
+Careful thought should help you merge the two trees together.
+
+\item Draw the phylogenetic tree for question~2. The tree you draw for this question can guide you for merging the two trees from \textsc{dna}. Compare the two; are you getting the same topology?
+
+\end{enumerate}
+
+Upload your answers from both handouts in a single document to the drop box for this week. You may include a pictures of your labeled phylogenetic trees from 09a (question~20) and 09b (question~2) in your document or upload them separately to the same drop box. These are the trees you drew from the presence/absence character matrices in 09a and 09b. 
+
+Upload the separate \textsc{png} files of the \textsc{18s} and \text{coi} phylogenies you obtained from steps~\textsc{a–j} of 09b. 
+
+Upload a photo or scan of your hand-drawn phylogenetic tree based on the merged \textsc{18s} and \textsc{coi} trees.
+
+In total, you should upload your typed answers as required above plus five (5) phylogenetic trees.\footnote{Invertebrate larvae identity: first row (l-r): feather duster, clam; second row (l-r): marine snail, chiton, marine worm.}
+
+\end{document}  

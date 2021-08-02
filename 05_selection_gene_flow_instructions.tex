@@ -1,0 +1,453 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+
+
+%\printanswers
+
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/063/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}   
+
+\usepackage{afterpage}
+\usepackage{pdflscape}
+                
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle, Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{amsbsy}
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\newcolumntype{M}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+\newcommand*\meanY{\overline{Y\kern1.67pt}\kern-1.67pt}
+\newcommand*\meansubY{\overline{Y}}
+%\newcommand*\meanY{\overline{Y}}
+\newcommand*\ttest{\emph{t}-test}
+\newcommand*\Popa{Population~\textsc{a}}
+\newcommand*\Popb{Population~\textsc{b}}
+\newcommand*\popa{population~\textsc{a}} %lower case
+\newcommand*\popb{population~\textsc{b}} %lower case
+\newcommand*\Corbicula{\textit{Corbicula}}
+\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+\newcommand{\allele}[1]{$#1$}
+
+
+\begin{document}
+
+
+
+\subsection*{Instructions for Evolution: natural selection and gene flow}
+
+
+\textbf{Read all instructions in this document carefully so that you do the required work without doing extra work!}
+
+Download from your lab Canvas page the following files from the Week 5 module.
+
+\begin{itemize}
+\item 05: Evolution: selection and gene flow.pdf
+\end{itemize}
+
+In lab you would have pulled colored beads (alleles) from a bag to simulate natural selection and gene flow. Typical results are presented in Tables~\ref{tab:selection_results} and~\ref{tab:migration_results} below.  Read the procedures in the handout \emph{thoroughly} to understand what you would have done this week and to answer the questions.
+
+Follow the steps below. Answer only the questions indicated and include the specified graphs in the order listed below.
+
+\begin{enumerate}
+
+
+\item Read the introduction to the Evolution by Natural Selection section, and then answer Question 1.
+
+\item Plot a line graph to show how natural selection causes the $d$ allele frequency (y-axis) to change each generation (x-axis). Make one graph for natural selection. \emph{Be sure your graph follows the proper format you learned from the Graphing Exercise you completed in a previous lab.}
+
+\item Include this graph after your answer to Question 1.
+
+\item Answer questions 3–5.
+
+\item Calculate $\chi^2$ for the fifth generation of Natural Selection. Tell whether the final generation is in Hardy-Weinberg equilibrium. Provide the value that you calculate for $\chi^2$ and state clearly how you used the value to determine if the population is in equilibrium.
+
+You do not need to include the table shown for Question 11.
+
+\item Read the introduction to the Evolution by Gene Flow section, and then answer Question 6.
+
+
+\item Plot a line graph to show how gene flow causes the $d$ allele frequency (y-axis) to change each generation (x-axis) for \emph{each} population. This plot must have one line for each population. \emph{Be sure your graph follows the proper format you learned from the Graphing Exercise you completed in a previous lab.}
+
+
+\item Answer questions 8–10.
+
+\item Answer this question: Give two possible reasons why the frequency of allele $d$ increased between generations 1 and 3. \textsc{Hint:} random. 
+
+\item Calculate $\chi^2$ for the fifth generation of Gene Flow for Population 1. You do \emph{not} have to calculate $\chi^2$ for Population 2. Tell whether the final generation is in Hardy-Weinberg equilibrium. Provide the value that you calculate for $\chi^2$ and state clearly how you used the value to determine if the population is in equilibrium.
+
+You do not need to include the table shown for Question 11.
+
+\end{enumerate}
+
+
+Upload your answers with graphs (Word or PDF) to the Week 05 Selection and Gene Flow drop box. Do not upload any spreadsheet you might use to make your graphs. Your graphs must be in the same document as your answers.
+
+\subsubsection*{Results of the natural selection experiment}
+
+\noindent\begin{longtable}[l]{%
+	@{}
+	C{0.75in}
+	C{0.45in}
+	C{0.45in}
+	C{0.45in}
+	C{0.45in}
+	C{0.45in}
+	C{0.45in}
+	C{0.45in}
+	C{0.45in}
+	@{}}
+	\caption{Genotype and allele frequencies after five generations of natural selection. Number of Individuals is the \emph{observed} number of individuals of each genotype. Use allele frequencies from Generation 5 to calculate the \emph{expected} number of individuals of each genotype.
+	\label{tab:selection_results}}\tabularnewline
+	\toprule
+	&
+	\multicolumn{3}{c}{Number of Individuals}	&
+	\multicolumn{3}{c}{Genotype Frequencies}  &
+	\multicolumn{2}{c}{Allele Frequencies}\tabularnewline
+	%
+	\cmidrule(lr){2-4} 
+	\cmidrule(l){5-7}
+	\cmidrule(l){8-9}	
+	%
+	Generation			&
+	\allele{DD}		&
+	\allele{Dd} 		&
+	\allele{dd} 	&
+	\allele{DD} 	&
+	\allele{Dd}	&
+	\allele{dd} 	&
+	\allele{D} 	&
+	\allele{d}	\tabularnewline
+	%
+	\midrule
+	& & & & & & & &\tabularnewline
+	%
+	0		&
+	& %\rule{0.5in}{0.4pt}	&
+	& %\rule{0.5in}{0.4pt}	&
+	& %\rule{0.5in}{0.4pt}	&
+	& %\rule{0.5in}{0.4pt}	&
+	&
+	&
+	0.10	&
+	0.90 	\tabularnewline
+	%
+	1	&
+	1 &
+	4	&
+	22	&
+	0.04	&
+	0.15	&
+	0.81	&
+	0.11	&
+	0.89 \tabularnewline
+	%
+	2	&
+	1 &
+	9	&
+	19	&
+	0.03	&
+	0.31	&
+	0.66	&
+	0.19	&
+	0.81 \tabularnewline
+	%
+	3	&
+	1 &
+	13	&
+	17	&
+	0.03	&
+	0.42	&
+	0.55	&
+	0.24	&
+	0.76 \tabularnewline
+	%
+	4	&
+	2 &
+	16	&
+	15	&
+	0.06	&
+	0.48	&
+	0.45	&
+	0.30	&
+	0.70 \tabularnewline
+	%
+	5	&
+	4 &
+	16	&
+	14	&
+	0.12	&
+	0.47	&
+	0.41	&
+	0.35	&
+	0.65 \tabularnewline
+	\bottomrule 
+\end{longtable}
+
+\newpage
+
+\begin{landscape}
+
+\subsubsection*{Results of the gene flow experiment}
+
+\begin{longtable}[l]{@{}%
+	C{0.75in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}@{}}
+	\caption{Allele and genotype frequencies after five generations of gene flow. The lower part of the table gives \\ the \emph{observed} number of individuals of each genotype. Use allele frequencies from Generation 5 to calculate \\ the \emph{expected} number of individuals of each genotype.}
+	\label{tab:migration_results}\tabularnewline
+  \toprule
+  &
+  \multicolumn{5}{c}{Population 1} &
+  \multicolumn{5}{c}{Population 2}\tabularnewline
+%
+  \cmidrule(lr){2-6} \cmidrule(lr){7-11}
+ %
+  & 
+  \multicolumn{2}{c}{Allele Frequency}		&
+  \multicolumn{3}{c}{Genotype Frequency}	&
+  \multicolumn{2}{c}{Allele Frequency}		&
+  \multicolumn{3}{c}{Genotype Frequency}\tabularnewline
+%
+  \cmidrule(lr){2-3}
+  \cmidrule(lr){4-6}
+  \cmidrule(lr){7-8}
+  \cmidrule(lr){9-11}
+%
+  Generation	&
+  \allele{D}	&
+  \allele{d}	&
+  \allele{DD}	&
+  \allele{Dd}	&
+  \allele{dd}	&
+  \allele{D}	&
+  \allele{d}	&
+  \allele{DD}	&
+  \allele{Dd}	&
+  \allele{dd}	\tabularnewline
+%
+  \midrule
+% & & & & & & & & & & \tabularnewline
+%Row 1: Generation 0
+0		& 
+0.10 	& 
+0.90	& 
+& %\rule{0.45in}{0.4pt}	& 
+& %\rule{0.45in}{0.4pt}	& 
+& %\rule{0.45in}{0.4pt}	& 
+0.50 	&
+0.50	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+\tabularnewline %\rule{0.45in}{0.4pt}	\tabularnewline[2em]
+%Row 2: Generation 1
+1		&
+0.27	&
+0.73	&
+0.00	&
+0.53	&
+0.47	&
+0.37 	&
+0.63	&
+0.10	&
+0.53	&
+0.37	\tabularnewline
+%Row 3: Generation 2
+2	&
+0.23	&
+0.73	&
+0.07	&
+0.33	&
+0.60	&
+0.35 	&
+0.65	&
+0.07	&
+0.57	&
+0.37	\tabularnewline
+%Row 4: Generation 3
+3	&
+0.18	&
+0.82	&
+0.07	&
+0.23	&
+0.70	&
+0.30 	&
+0.70	&
+0.03	&
+0.53	&
+0.44	\tabularnewline
+%Row 5: Generation 4
+4	&
+0.28	&
+0.72	&
+0.10	&
+0.37	&
+0.53	&
+0.23	&
+0.77	&
+0.07	&
+0.33	&
+0.60	\tabularnewline
+%Row 6: Generation 5
+5	&
+0.22	&
+0.78	&
+0.00	&
+0.43	&
+0.57	&
+0.23	&
+0.77	&
+0.07	&
+0.33	&
+0.60	\tabularnewline
+	\midrule 
+&&&&&&&&&&\tabularnewline
+%
+ 		&&&
+ \multicolumn{3}{c}{Population 1} &&&
+ \multicolumn{3}{c}{Population 2}\tabularnewline
+%
+   & &&
+%  \multicolumn{2}{c}{Allele Frequency}		&
+  \multicolumn{3}{c}{Number of Genotypes}	&
+	&&
+%  \multicolumn{2}{c}{Allele Frequency}		&
+  \multicolumn{3}{c}{Number of Genotypes}\tabularnewline
+  \cmidrule(lr){4-6} \cmidrule(lr){9-11}
+%
+	Generation&&&\allele{DD}&\allele{Dd}&\allele{dd}&&&\allele{DD}&\allele{Dd}&\allele{dd}\tabularnewline
+	\midrule
+%	&&&&&&&&&&\tabularnewline
+	5		& 
+	 	& 
+		& 
+	0	& 
+	13	& 
+	17	& 
+	 	&
+		&
+	2	&
+	10	&
+	18	\tabularnewline
+	
+  \bottomrule
+  
+\end{longtable}
+
+\end{landscape}
+
+
+\end{document}  

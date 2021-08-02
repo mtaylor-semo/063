@@ -1,0 +1,198 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+
+
+%\printanswers
+
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/063/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}   
+
+\usepackage{afterpage}
+\usepackage{pdflscape}
+                
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle, Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{amsbsy}
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\newcolumntype{M}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+\newcommand*\meanY{\overline{Y\kern1.67pt}\kern-1.67pt}
+\newcommand*\meansubY{\overline{Y}}
+%\newcommand*\meanY{\overline{Y}}
+\newcommand*\ttest{\emph{t}-test}
+\newcommand*\Popa{Population~\textsc{a}}
+\newcommand*\Popb{Population~\textsc{b}}
+\newcommand*\popa{population~\textsc{a}} %lower case
+\newcommand*\popb{population~\textsc{b}} %lower case
+\newcommand*\Corbicula{\textit{Corbicula}}
+\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+\newcommand{\allele}[1]{$#1$}
+
+
+\begin{document}
+
+
+
+\subsection*{Instructions for homology, analogy, and transitional forms}
+
+
+\textbf{Read all instructions in this document carefully so that you do the required work without doing extra work!}
+
+Download from your lab Canvas page these \textsc{pdf} files from the Week 8 module.
+
+\begin{itemize}
+\item 08a: Homology, analogy and hypothesis testing
+\item 08b: Transitional forms
+\end{itemize}
+
+\subsubsection*{08a: Homology, analogy, and hypothesis testing}
+
+\begin{enumerate}
+
+\item Read the handout carefully. Apply the flow chart on page 3. You learned how to use the flow chart in the pre-lab.
+
+\item Answer questions 2-8, including all parts of the multipart questions. If you are unsure about the function of a structure, email your lab instructor.
+
+\item Helpful info for question 2:
+
+One function of skeletons is attachment of muscles. Muscles need a fixed attachment point to work. For example, bring your palm towards your shoulder, bending your arm at the elbow (I refuse to insert a "12-oz curl" joke here.) Your arm was raised by your biceps muscle, which attaches to bones in your forearm and shoulder. The biceps contracts, pulling against the bones, thereby raising your arm.  When you lowered your arm (lower it now if still curled), your triceps muscle pulls against bone too. 
+
+Forearm animation (Clickable link in \textsc{pdf}.):\newline \url{https://commons.wikimedia.org/wiki/File:Animation_triceps_biceps.gif} 
+
+The clavicle ("collar bone") on prepared cat skeletons like the one pictured is held in place by a wire. In life, the clavicle is not attached to the rest of the skeleton. In contrast, the clavicle of a macaque, like your own collar bone, is attached at one end to your sternum (breastbone) and at the other end to your shoulder blade. The attached collar bone provides a rigid structure for muscles to pull against and strengthens the upper body. 
+
+The clavicle is attached in all organisms listed in Question 2 \emph{except for the cat.}
+
+\item Skip question 9. You should try it for fun but it's \emph{very} hard to get correct. The answers are at the end of this document.
+
+\item Answer questions 10–11. Hint for 11: Given the homology data from the skeleton so far, can you tell whether the cat (for example), is more closely related to a bat or macaque? Or whether the alligator is more closely related to the salamander or human?
+
+\end{enumerate}
+
+
+\subsubsection*{08b: transitional forms}
+
+\begin{enumerate}
+
+\item Answer 1–3, including all parts of multipart questions.
+
+\item Skip questions 4–5. The activity does not have a good online counterpart. Some of the transitional forms that support a reptile$\rightarrow$mammal transition are shown here, from the most reptile-like organism (spenacodontid; upper left) to the most mammal-like (\emph{Morganucodon}, lower right). Notice the order of the organisms matches closely with the known occurrence in the fossil record (page 6 of the handout).
+
+\includegraphics[width=\linewidth]{07_transitional_forms}
+
+\textbf{The results from this activity support hypothesis 1.}
+
+\item Answer questions 6-8. Remember that conclusion from the scientific method tells whether a hypothesis is supported or falsified.
+
+\item Draw a phylogenetic tree to answer questions 9–10. Use the character matrix from question 9 to make the tree. Label the branches with the appropriate times given in question 10. For example, next to branch representing the common ancestor of birds and reptiles, write “201-145 \textsc{mya}” to indicate the transition between these two groups occurred during that time period.
+\end{enumerate}
+
+Upload your answers from both handouts in a single document to the drop box for this week. You may include a picture of your labeled phylogenetic tree in your document or upload it separately to the same drop box.\footnote{Embyro identity: first row (l-r): chicken, zebrafish, human; second row (l-r): cat, salamander, chicken.}
+
+\end{document}  

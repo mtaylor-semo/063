@@ -1,0 +1,185 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+
+
+%\printanswers
+
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/063/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}   
+
+\usepackage{afterpage}
+\usepackage{pdflscape}
+                
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle, Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{amsbsy}
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\newcolumntype{M}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+\newcommand*\meanY{\overline{Y\kern1.67pt}\kern-1.67pt}
+\newcommand*\meansubY{\overline{Y}}
+%\newcommand*\meanY{\overline{Y}}
+\newcommand*\ttest{\emph{t}-test}
+\newcommand*\Popa{Population~\textsc{a}}
+\newcommand*\Popb{Population~\textsc{b}}
+\newcommand*\popa{population~\textsc{a}} %lower case
+\newcommand*\popb{population~\textsc{b}} %lower case
+\newcommand*\Corbicula{\textit{Corbicula}}
+\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+\newcommand{\allele}[1]{$#1$}
+
+
+\begin{document}
+
+
+
+\subsection*{Instructions for Application of Phylogenetic Trees}
+
+
+\textbf{Read all instructions in this document carefully so that you do the required work without doing extra work!}
+
+Download from your lab Canvas page the following \textsc{pdf} files from the Week 7 module.
+
+\begin{itemize}
+\item 07a: Lizard biogeography
+\item 07b: Goby speciation
+\end{itemize}
+
+Watch the brief “Application of phylogenetic trees” video for \emph{important} background information you need to complete the exercises.
+
+\subsubsection*{07a: Lizard biogeography}
+
+\begin{enumerate}
+
+\item Read the handout carefully. Pay careful attention to the five general principles listed at the top of page 2.
+
+\item Answer all questions. \emph{You do not need to submit your answer for Question 5 (Table 2) but you do need the data to complete this exercise.} If necessary, rewatch the video to be sure you understand how to compare the \textsc{dna} swquences.
+
+\item Include your phylogenetic tree drawings in your document along with your answers to questions. 
+
+\item Fill in the table on page 3 of the handout. You do not have to upload your completed table.
+
+\end{enumerate}
+
+
+
+\subsubsection*{07b: Goby speciation}
+
+\begin{enumerate}
+
+\item Answer all questions.
+
+\item Apply the principle of parsimony to find the fewest number of evolutionary changes for behavior and for color. 
+
+\end{enumerate}
+
+Upload your answers from both handouts in a single document to the drop box for this week.
+
+
+\end{document}  

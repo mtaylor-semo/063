@@ -1,0 +1,217 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+
+
+%\printanswers
+
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/063/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle, Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{amsbsy}
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+\usepackage{afterpage}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+\newcommand*\meanY{\overline{Y\kern1.67pt}\kern-1.67pt}
+\newcommand*\meansubY{\overline{Y}}
+%\newcommand*\meanY{\overline{Y}}
+\newcommand*\ttest{\emph{t}-test}
+\newcommand*\Popa{Population~\textsc{a}}
+\newcommand*\Popb{Population~\textsc{b}}
+\newcommand*\popa{population~\textsc{a}} %lower case
+\newcommand*\popb{population~\textsc{b}} %lower case
+\newcommand*\Corbicula{\textit{Corbicula}}
+\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+\begin{document}
+
+\subsubsection*{Instructions for lake ice and climate change lab}
+
+\textbf{All sections: due Monday, 11 May, 11:59~\textsc{pm}. No exceptions.}
+
+Download from your lab Moodle page the lab handout and the Excel data file. The data are from a previous semester. If you cannot open the Excel file in your spreadsheet software, email Dr.~Taylor (mtaylor@semo.edu) for an alternate solution.
+
+\begin{itemize}
+\item 15: Lake ice and climate change
+\item 15\_lake\_ice\_data.xlsx
+\end{itemize}
+
+\subsubsection*{About the spreadsheet}
+
+Do not go to the website listed for the data. 
+Use the 15\_lake\_ice\_data.xlsx file downloaded from your lab Moodle page.
+
+The spreadsheet contains seven tabs of data. The "Data" tab contains 
+the original data set used in lab and described in the lab handout.  The data were  
+grouped into periods 1–6, listed below. Each period spans 26 or 27 
+years. The data for each period is provided in separate tabs, trimmed 
+to just the year and ice duration (measured in days).
+
+In lab, you would have discussed which column of data would be best
+to show the effects of climate change. \textbf{You will use only 
+the ice duration column.}
+
+\begin{tabular}{lr}
+\toprule
+Period & Years \\
+\midrule
+1 & 1855–1881 \\
+2 & 1882–1908 \\
+3 & 1909–1934 \\
+4 & 1935–1961 \\
+5 & 1962–1988 \\
+6 & 1989–2015 \\
+\bottomrule
+\end{tabular}
+
+\begin{enumerate}
+
+
+\item Answer all questions from the lab  handout except as noted below. These instructions modify some questions so read these instructions and the
+questions in the lab handout carefully.
+
+\item Skip question~1. You will plot the data for Ice Duration only. 
+
+\item Question~2: Write your hypothesis that states how ice duration should change over time if mean global temperatures are increasing.
+
+\item Skip question~3.
+
+\item Page~3, steps \textsc{a}–{e}: Make a line graph for each period that plots the duration (\textsc{y}-axis) for each year (\textsc{x}-axis). Do not worry about labeling the axes or other formatting details. Just make the graphs. These steps may work for most versions of Excel. 
+
+\begin{itemize}
+\item Select both columns of data. 
+\item Choose "Insert" tab.
+\item Click the "Recommended charts" (or similar).
+\item Choose the line chart format, with or without markers. This should insert a chart with years on the \textsc{x}-axis and duration on the \textsc{y}-axis.
+\item If you're not using Excel, you still have the responsibility of making the correct graph.
+\end{itemize}
+
+\item Question~4: Use Excel's “average()” function to calculate the mean ice duration for each period to one digit after the decimal. Skip the part of the question asking about minimum and maximum durations. List the means for each period in your Word document.
+
+\item Questions~5 and 6: Your answer consider the variability and trends of the ice duration for each time period independent of the other five periods. Trends refers to the \emph{overall} pattern shown in each graph. Does the duration seem to be decreasing, increasing, or remain relatively constant?
+
+\item Question~7: Instead of comparing your results with others, make a line graph that shows how the mean duration (from Question 4 above) over the six periods. The \textsc{y}-axis is the mean duration you calculated. The periods on the \textsc{x}-axis must be in numberic order (Period~1, Period~2, \dots~Period~6). \textbf{Describe how ice duration changes from Period~1 to Period~6.}
+
+\item \textbf{Question~7a:} Consider the graphs you made for each period. Do the short-term trends (i.e., 26 or 27 years) suggest a consistent change in ice duration that could be due to climate change? Explain.
+
+\item Question~8: Skip steps~\textsc{a–c}. Use the “average()” function to calculate the 
+mean ice duration for the entire data set (the Data tab). Enter the mean ice duration in whole days (no digits after the decimal) for the entire data set.
+
+\item Question~9: Instead of answering these question, make a line graph of ice duration for all years (1855–2015).
+
+\item Skip question~10.
+
+\item Use the line graph of the long-term data to answer questions~11–13.
+
+\item Skip questions~14 and 15.
+
+\end{enumerate}
+
+When you are finished, upload your Word (or similar) document and your spreadsheet with your graphs to the drop box.
+
+\end{document}  
